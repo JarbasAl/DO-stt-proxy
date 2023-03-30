@@ -1,1 +1,1 @@
-pyjokes==0.6.0 
+ovos-stt-plugin-chromium
