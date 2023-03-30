@@ -1,7 +1,8 @@
 import json
-import requests
-from speech_recognition import Recognizer, AudioFile, AudioData
 from tempfile import NamedTemporaryFile
+
+import requests
+from speech_recognition import Recognizer, AudioFile
 
 
 def bytes2audiodata(data):
@@ -65,7 +66,6 @@ class ChromiumSTT:
         # if confidence is provided return highest conf
         candidates = [alt for alt in data if alt.get("confidence")]
 
-
         if len(candidates):
             best = max(candidates, key=lambda alt: alt["confidence"])
             best_hypothesis = best["transcript"]
@@ -74,13 +74,15 @@ class ChromiumSTT:
 
 
 def main(args):
-  stt = ChromiumSTT()
-  lang = args.get("lang", "en-us").lower()
-  # TODO - check format of args to see how audio is passed
-  #audio = args.get("audio")
-  #utt = stt.execute(bytes2audiodata()audio)
-  return {
-    'body': {
-      'args': str(args)
+    print(args)
+    # stt = ChromiumSTT()
+    lang = args.get("lang", "en-us").lower()
+    # TODO - check format of args to see how audio is passed
+    # audio = args.get("audio")
+    # utt = stt.execute(bytes2audiodata()audio)
+    return {
+        'body': {
+            'lang': lang,
+            'text': str(args)
+        }
     }
-  }
