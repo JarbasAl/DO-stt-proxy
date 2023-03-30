@@ -5,9 +5,9 @@ functions:
 - github:
     branch: master
     deploy_on_push: true
-    repo: digitalocean/sample-functions-python-jokes
-  name: jokes-api
+    repo: JarbasAl/DO-stt-proxy
+  name: stt-api
   routes:
   - path: /
   source_dir: /
-name: jokes
+name: stt
