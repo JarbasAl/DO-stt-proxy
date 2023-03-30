@@ -1,1 +1,2 @@
-ovos-stt-plugin-chromium
+requests
+SpeechRecognition
